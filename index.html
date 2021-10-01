@@ -17,37 +17,24 @@
     <!--                                           -->
     <!-- Any title is fine                         -->
     <!--                                           -->
-    <title>JsQRScanner example</title>
+    <title>Video Player</title>
     
     <!--                                           -->
     <!-- This script loads your compiled module.   -->
-    <script type="text/javascript" src="/JsQRScanner/jsPretty/jsqrscanner.nocache.js"></script>
+    <script type="text/javascript" src="./jsPretty/jsqrscanner.nocache.js"></script>
   </head>
   <body>
 
     <div class="row-element-set row-element-set-QRScanner">
     <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div class="row-element-set error_message">
-        Your web browser must have JavaScript enabled
-        in order for this application to display correctly.
-      </div>
-    </noscript>
-    <div class="row-element-set error_message" id="secure-connection-message" style="display: none;" hidden >
-      You may need to serve this page over a secure connection (https) to run JsQRScanner correctly.
-    </div>
-    <script> 
-    if (location.protocol != 'https:') { 
-      document.getElementById('secure-connection-message').style='display: block';
-      }
-      </script>  
 
-      <h1>JsQRScanner example</h1>
+
+      <h1>掃描以播放影片</h1>
       <div class="row-element">
         <div class="FlexPanel detailsPanel QRScannerShort">
           <div class="FlexPanel shortInfoPanel">
             <div class="gwt-HTML">
-              Point the webcam to a QR code.
+              Power by Li Wang.
             </div>
           </div>
         </div>
@@ -61,14 +48,14 @@
   <script type="text/javascript">
     function onQRCodeScanned(scannedText)
     {
-    	
-        console.log(content);
-        var NewArray = new Array(); 
-        var NewArray = scannedText.split("https://www.youtube.com/watch?v="); 
-        var IndexArr = new Array(); 
-        var IndexArr = NewArray[1].split("&ab_channel="); 
-        //document.getElementById("videoBlock").src="https://www.youtube.com/embed/"+IndexArr[0]+"?rel=0&autoplay=1";
-        window.location="./player.html?nid="+IndexArr[0];
+      console.log(scannedText);
+      var string = scannedText; 
+      var NewArray = new Array(); 
+      var NewArray = string.split("https://www.youtube.com/watch?v="); 
+      var IndexArr = new Array(); 
+      var IndexArr = NewArray[1].split("&ab_channel="); 
+      //document.getElementById("videoBlock").src="https://www.youtube.com/embed/"+IndexArr[0]+"?rel=0&autoplay=1";
+      window.location="./player.html?nid="+IndexArr[0];
     }
     
     function provideVideo()
@@ -125,12 +112,12 @@
         //var jbScanner = new JsQRScanner(onQRCodeScanned, provideVideo);
         //reduce the size of analyzed image to increase performance on mobile devices
         jbScanner.setSnapImageMaxSize(300);
-    	var scannerParentElement = document.getElementById("scanner");
-    	if(scannerParentElement)
-    	{
-    	    //append the jbScanner to an existing DOM element
-    		jbScanner.appendTo(scannerParentElement);
-    	}        
+      var scannerParentElement = document.getElementById("scanner");
+      if(scannerParentElement)
+      {
+          //append the jbScanner to an existing DOM element
+        jbScanner.appendTo(scannerParentElement);
+      }        
     }
   </script>    
   </body>
