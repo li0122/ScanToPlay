@@ -1,0 +1,10 @@
+<html>
+<script type="text/javascript">
+	var string = 'https://www.youtube.com/watch?v=7Ltyr8YdBT8&ab_channel=%E6%88%91%E6%84%9B%E9%A5%92%E8%88%8CKKbox'; 
+	var NewArray = new Array(); 
+	var NewArray = string.split("https://www.youtube.com/watch?v="); 
+	var IndexArr = new Array(); 
+	var IndexArr = NewArray[1].split("&ab_channel="); 
+	document.write(IndexArr[0] + '<br>'); 
+</script>
+</html>
