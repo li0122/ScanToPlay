@@ -57,46 +57,18 @@
         <div class="qrscanner" id="scanner">
         </div>
       </div>
-      <div class="row-element">
-        <div class="form-field form-field-memo">
-          <div class="form-field-caption-panel">
-            <div class="gwt-Label form-field-caption">
-              Scanned text
-            </div>
-          </div>
-          <div class="FlexPanel form-field-input-panel">
-            <textarea id="scannedTextMemo" class="textInput form-memo form-field-input textInput-readonly" rows="3" readonly>
-            </textarea>
-          </div>
-        </div>
-        <div class="form-field form-field-memo">
-          <div class="form-field-caption-panel">
-            <div class="gwt-Label form-field-caption">
-              Scanned text history
-            </div>
-          </div>
-          <div class="FlexPanel form-field-input-panel">
-            <textarea id="scannedTextMemoHist" class="textInput form-memo form-field-input textInput-readonly" value="" rows="6" readonly>
-            </textarea>
-          </div>
-        </div>
-      </div>
-      <br>
-      <a style="font-weight: bold;" href="https://github.com/jbialobr/JsQRScanner">The source code is hosted on GitHub</a>
     </div>
   <script type="text/javascript">
     function onQRCodeScanned(scannedText)
     {
-    	var scannedTextMemo = document.getElementById("scannedTextMemo");
-    	if(scannedTextMemo)
-    	{
-    		scannedTextMemo.value = scannedText;
-    	}
-    	var scannedTextMemoHist = document.getElementById("scannedTextMemoHist");
-    	if(scannedTextMemoHist)
-    	{
-    		scannedTextMemoHist.value = scannedTextMemoHist.value + '\n' + scannedText;
-    	}
+    	
+        console.log(content);
+        var NewArray = new Array(); 
+        var NewArray = scannedText.split("https://www.youtube.com/watch?v="); 
+        var IndexArr = new Array(); 
+        var IndexArr = NewArray[1].split("&ab_channel="); 
+        //document.getElementById("videoBlock").src="https://www.youtube.com/embed/"+IndexArr[0]+"?rel=0&autoplay=1";
+        window.location="./player.html?nid="+IndexArr[0];
     }
     
     function provideVideo()
